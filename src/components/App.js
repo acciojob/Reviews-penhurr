@@ -42,6 +42,7 @@ const App = () => {
         }
     ]
 
+    let curr = revArray[rev].id
 
 
     return (
@@ -49,14 +50,16 @@ const App = () => {
             <h1 id='review-heading'>Our Reviews</h1>
             <div className='review'>
                 <img className='person-img' src={revArray[rev].image} alt='image of the author' height={100}></img>
-                <p className='author' id={rev+1}>{revArray[rev].name}</p>
+                <p className='author' id={curr}>{revArray[rev].name}</p>
                 <p className='job'>{revArray[rev].job}</p>
                 <p className='info'>{revArray[rev].text}</p>
-                
+
+                <button className='prev-btn' onClick={() => { (rev == 0) ? setRev(revArray.length - 1) : setRev(rev - 1) }}>Previous</button>
+                <button className='next-btn' onClick={() => { (rev == revArray.length - 1) ? setRev(0) : setRev(rev + 1) }}>Next</button>
+                <button className='random-btn' onClick={() => { setRev(Math.floor(Math.random() * 4)) }}>Surprise me</button>
+
             </div>
-            <button className='prev-btn' onClick={()=>{(rev==0) ? setRev(revArray.length - 1) : setRev(rev-1)}}>Previous</button>
-            <button className='next-btn' onClick={()=>{(rev==revArray.length - 1)? setRev(0) : setRev(rev+1) }}>Next</button>
-            <button className='random-btn' onClick={()=>{setRev(Math.floor(Math.random() * 4))}}>Surprise me</button>
+
         </div>
     )
 }
