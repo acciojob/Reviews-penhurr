@@ -42,8 +42,9 @@ const App = () => {
         }
     ]
 
-    let curr = revArray[rev].id
+    let curr = 'author-'+revArray[rev].id
     console.log(curr);
+    
 
 
 
@@ -52,7 +53,7 @@ const App = () => {
             <h1 id='review-heading'>Our Reviews</h1>
             <div className='review'>
                 <img className='person-img' src={revArray[rev].image} alt='image of the author' height={100}></img>
-                <p className='author' id={curr}>{revArray[rev].name}</p>
+                <p className='author' id={{curr}}>{revArray[rev].name}</p>
                 <p className='job'>{revArray[rev].job}</p>
                 <p className='info'>{revArray[rev].text}</p>
 
