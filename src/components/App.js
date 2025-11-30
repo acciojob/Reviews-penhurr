@@ -57,7 +57,13 @@ const App = () => {
 
                 <button className='prev-btn' onClick={() => { (rev == 0) ? setRev(revArray.length - 1) : setRev(rev - 1) }}>Previous</button>
                 <button className='next-btn' onClick={() => { (rev == revArray.length - 1) ? setRev(0) : setRev(rev + 1) }}>Next</button>
-                <button className='random-btn' onClick={() => { setRev(Math.floor(Math.random() * 4)) }}>surprise me</button>
+                <button className='random-btn' onClick={() => {
+                    let newIndex = Math.floor(Math.random() * 4);
+
+                    (rev==newIndex) ? newIndex+=1 : newIndex
+
+                    setRev(newIndex)
+                }}>surprise me</button>
             </div>
 
 
